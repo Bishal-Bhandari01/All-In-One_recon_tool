@@ -12,15 +12,13 @@ It is a subfinder, port-scanner,etc. It is still in update stage
 </ol>
 
 # Usage:
-```
 for Port scanning:
-    ```python3
+```python3
     python3 allinone.py -net <ip/domain name>
-    ```
+```
 for sub-domain:
-    ```python3
+```python3
     python3 allinone.py -subs <domain name>
-    ```
 ```
 
 # Developed by Bishal-Bhandari01.
