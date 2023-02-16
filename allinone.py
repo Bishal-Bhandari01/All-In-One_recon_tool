@@ -15,7 +15,10 @@ print("\t*      /  /    \  \  | |_____| |_____ ___|  |___|  | \ \| |  |____|  | 
 print("\t*     /__/      \__\ |_______|_______|__________|__|  \___|__________|__|  \___|___________|      *")
 print("\t*                                                                                                 *")
 print("\t", "*"*97)
-
+print("\n")
+print("\t\t\t\tPython based fast all in one tool")
+print("\t\t\tDeveloped by github: @Bishal-Bhandari01 and Version: 1.0.0 ")
+print("\n")
 
 def help():
     """ prepare argument parse
@@ -23,11 +26,9 @@ def help():
     return:
         args(argparse.Namespace)
     """
-    parse = ArgumentParser(description="Developed by github: @Bishal-Bhandari01\n\tPython based fast all in one tool",
-                           usage="%(prog)s -s domin.com -t 50\n\t%(prog)s -subs domain.com -t 50")
+    parse = ArgumentParser(usage=" %(prog)s -s domin.com -t 50\n\t%(prog)s -subs domain.com -t 50")
     parse.add_argument("-subs", "--sub-domain", metavar="",
                        dest="subs", help="Find sub-domain")
-    parse.add_argument("--v", help="Version of the tool", version="0.0.1")
     parse.add_argument("-t", "--thread", metavar="", dest="threads",
                        help="Set threads", default=500)
     parse.add_argument("-p", "--port", metavar="",
@@ -46,14 +47,12 @@ def help():
 
 def output(outputs):
     if arguments.ports:
-        file = open(arguments.output, "a")
-        file.write("==> Port " + str(outputs) + " is open.", end="\n")
-        file.close()
+        with open(arguments.output, "a") as file:
+            file.write("[+] Port " + str(outputs) + " is open.")
 
     if arguments.subs:
-        file = open(arguments.output, "a")
-        file.write(outputs+"\n")
-        file.close()
+        with open(arguments.output, "a") as file:
+            file.write(outputs+"\n")
 
 # Port Scanning Tool Code starts here...
 
@@ -63,6 +62,7 @@ def scan_ports(end: int):
         end(int): number of ports to be scanned
     """
     for port in range(1, end):
+        print(port," to ",end)
         yield port
 
 
@@ -132,6 +132,7 @@ if __name__ == "__main__":
         ports = scan_ports(int(arguments.ports))
     else:
         ports = scan_ports(65535)
+
     if arguments.subs:
         start = time()
         scan_subs(words)

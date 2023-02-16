@@ -12,19 +12,16 @@ It is a subfinder, port-scanner,etc. It is still in update stage
 </ol>
 
 # Usage:
-- In windows:
-        ``` 
-         python3 allinone.py -u <ip>/domain
-        ```
-
-- In linux:
-        ```
-         python3 allinone.py -u <ip>/domain
-        ```
-- In mac:
-        ```
-         python3 allinone.py -u <ip>/domain
-        ```
+```
+for Port scanning:
+    ```python3
+    python3 allinone.py -net <ip/domain name>
+    ```
+for sub-domain:
+    ```python3
+    python3 allinone.py -subs <domain name>
+    ```
+```
 
 # Developed by Bishal-Bhandari01.
     - Wish you happy hacking. 
